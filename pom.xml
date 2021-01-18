@@ -12,7 +12,7 @@
 	<artifactId>UserApplicationServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>UserApplicationServer</name>
-	<description>Application server distributing microservices for user managrement.</description>
+	<description>Application server distributing microservices for person managrement.</description>
 
 	<properties>
 		<java.version>11</java.version>
