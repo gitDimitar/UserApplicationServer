@@ -1,4 +1,4 @@
-package Entity;
+package com.dpapazikov.UserApplicationServer.Entity;
 
 import javax.persistence.*;
 

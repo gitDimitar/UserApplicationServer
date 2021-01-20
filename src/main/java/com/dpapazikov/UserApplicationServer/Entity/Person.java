@@ -1,4 +1,4 @@
-package Entity;
+package com.dpapazikov.UserApplicationServer.Entity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,12 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="person")
 public class Person {
 
     @Id
     @GeneratedValue
     private int id;
+    @Column(name="firstName")
     private String firstName;
+    @Column(name="lastName")
     private String lastName;
 
     @OneToMany(mappedBy="person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -36,7 +39,7 @@ public class Person {
         this.id= id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.addressList =  new ArrayList<>(addressList);
+        this.addressList =  new ArrayList<>();
     }
 
     public int getId()

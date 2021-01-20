@@ -1,14 +1,14 @@
-package Controller;
+package com.dpapazikov.UserApplicationServer.Controller;
 
-import Entity.Person;
-import Repository.PersonRepository;
+import com.dpapazikov.UserApplicationServer.Entity.Person;
+import com.dpapazikov.UserApplicationServer.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class PersonController {
 
     private final PersonRepository personRepo;
@@ -21,7 +21,7 @@ public class PersonController {
 
 
     //Returns a list of all Persons that exist in the DB
-    @GetMapping("/person")
+    @GetMapping("/person/get")
     public List<Person> getAllUsers()
     {
     	personRepo.save(new Person(1, "Asd", "Sad", null));

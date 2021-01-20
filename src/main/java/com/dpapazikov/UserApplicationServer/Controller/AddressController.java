@@ -1,14 +1,16 @@
-package Controller;
+package com.dpapazikov.UserApplicationServer.Controller;
 
-import Entity.Address;
-import Repository.AddressRepository;
+import com.dpapazikov.UserApplicationServer.Entity.Address;
+import com.dpapazikov.UserApplicationServer.Repository.AddressRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class AddressController {
 
     private final AddressRepository addrRepo;
-
+    @Autowired
     AddressController(AddressRepository repo)
     {
         this.addrRepo = repo;
