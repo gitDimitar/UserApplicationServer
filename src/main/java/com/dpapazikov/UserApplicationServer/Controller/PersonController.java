@@ -24,7 +24,7 @@ public class PersonController {
     @GetMapping("/person/get")
     public List<Person> getAllUsers()
     {
-    	personRepo.save(new Person(1, "Asd", "Sad", null));
+    	//personRepo.save(new Person(1, "Asd", "Sad", null));
         return (List<Person>) personRepo.findAll();
     }
 
@@ -35,7 +35,7 @@ public class PersonController {
         return person.getId();
     }
 
-    @PutMapping("/person")
+    @PutMapping("/person/{id}")
     public void updateUser(@RequestBody Person person, @PathVariable int id)
     {
         personRepo.findById(id).map(u ->
@@ -47,7 +47,7 @@ public class PersonController {
         });
     }
 
-    @DeleteMapping("/person")
+    @DeleteMapping("/person/{id}")
     public void deleteUser(@PathVariable int id)
     {
         personRepo.deleteById(id);

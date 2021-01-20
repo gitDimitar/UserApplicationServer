@@ -1,6 +1,7 @@
 package com.dpapazikov.UserApplicationServer.Controller;
 
 import com.dpapazikov.UserApplicationServer.Entity.Address;
+import com.dpapazikov.UserApplicationServer.Entity.Person;
 import com.dpapazikov.UserApplicationServer.Repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,14 @@ public class AddressController {
         this.addrRepo = repo;
     }
 
-    @PostMapping("/address")
+    @PostMapping("/address/{person_id}")
     public int addAddress(@PathVariable int person_id, @RequestBody Address addr)
     {
-        addr.setPerson(addrRepo.findPersonById(person_id));
+        addr.setPerson(new Person(person_id));
         return addrRepo.save(addr).getId();
     }
 
-    @PutMapping("/address")
+    @PutMapping("/address/{id}")
     public void editAddress(@PathVariable int id, @RequestBody Address addr)
     {
         addrRepo.findById(id).map(a ->
@@ -36,7 +37,7 @@ public class AddressController {
         });
     }
 
-    @DeleteMapping("/address")
+    @DeleteMapping("/address/{id}")
     public void removeAddress(@PathVariable int id)
     {
         addrRepo.deleteById(id);

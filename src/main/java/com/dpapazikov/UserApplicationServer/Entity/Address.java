@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Address {
 
     @Id
+    @GeneratedValue
     private int id;
     private String street;
     private String city;
