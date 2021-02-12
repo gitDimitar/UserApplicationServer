@@ -6,6 +6,8 @@ import com.dpapazikov.UserApplicationServer.Repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class AddressController {
@@ -17,10 +19,15 @@ public class AddressController {
         this.addrRepo = repo;
     }
 
+    @GetMapping("/address")
+    public List<Address> getAllAddresses()
+    {
+        return addrRepo.findAll();
+    }
+
     @PostMapping("/address/{person_id}")
     public int addAddress(@PathVariable int person_id, @RequestBody Address addr)
     {
-        addr.setPerson(new Person(person_id));
         return addrRepo.save(addr).getId();
     }
 

@@ -19,7 +19,8 @@ public class Person {
     @Column(name="lastName")
     private String lastName;
 
-    @OneToMany(mappedBy="person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="person_id", nullable = false)
     List<Address> addressList;
 
     public Person()

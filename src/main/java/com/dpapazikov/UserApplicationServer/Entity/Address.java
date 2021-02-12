@@ -13,22 +13,17 @@ public class Address {
     private String state;
     private String postCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id", nullable = false)
-    private Person person;
-
     public Address()
     {
     }
 
-    public Address(int id, String street, String city, String state, String postCode, Person person)
+    public Address(int id, String street, String city, String state, String postCode)
     {
         this.id = id;
         this.street = street;
         this.city = city;
         this.state = state;
         this.postCode = postCode;
-        this.person = person;
     }
 
     public int getId()
@@ -81,13 +76,4 @@ public class Address {
         this.postCode = postCode;
     }
 
-    public Person getPerson()
-    {
-        return person;
-    }
-
-    public void setPerson(Person person)
-    {
-        this.person = person;
-    }
 }
